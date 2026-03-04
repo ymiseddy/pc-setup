@@ -96,3 +96,26 @@ I haven't verified these yet, do it the hard way, then diff to verify this works
 ```powershell
 (Get-BitLockerVolume -MountPoint C).KeyProtector > $env:UserProfile\Desktop\BitLocker_Recovery_Key.txt
 ```
+
+## Adding Local Account
+
+```powershell
+$Username = "TestUser"
+```
+
+```
+$Fullname = "Test User"
+```
+
+```powershell
+$Password = Read-Host -AsSecureString -Prompt "Enter password"
+```
+
+```powershell
+New-LocalUser -Name $Usernamme -Password $Password -FullName $Fullname -Description "A standard local user account"
+```
+
+```powershell
+Add-LocalGroupMember -Group "Administrators" -Member $Username
+```
+
