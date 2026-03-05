@@ -7,7 +7,7 @@ winget search Microsoft.PowerShell
 ```
 
 ```
-winget install –id Microsoft.PowerShell --source winget
+winget install -–id Microsoft.PowerShell --source winget
 ```
 
 ```
