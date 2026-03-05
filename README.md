@@ -35,25 +35,25 @@ dism /online /cleanup-image /restorehealth
 ## Acrobat Reader
 
 ```powershell
-winget install -e --id Adobe.Acrobat.Reader.64-bit
+winget install -e --id Adobe.Acrobat.Reader.64-bit --source winget
 ```
 
 ## Office
 
 ```powershell
-winget install --id Microsoft.Office -e
+winget install --id Microsoft.Office -e --source winget --source winget
 ```
 
 ## Chrome
 
 ```powershell
-winget install -e --id Google.Chrome
+winget install -e --id Google.Chrome --source winget
 ```
 
 ## Dropbox
 
 ```
-winget install -e --id Dropbox.Dropbox
+winget install -e --id Dropbox.Dropbox --source winget
 ```
 
 ## BitLocker Recovery Key Backup Guide
