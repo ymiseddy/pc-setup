@@ -1,29 +1,3 @@
-# PowerShell Setup Script
-
-This script automates the setup of a Windows PC environment using PowerShell.
-
-## Steps:
-1. Install/Update PowerShell via winget
-2. Upgrade all packages using winget
-3. Run `sfc /scannow`
-4. Run `DISM /Online /Cleanup-Image /ScanHealth`
-5. Optionally restore health if issues are found using `DISM /Online /Cleanup-Image /RestoreHealth`
-6. Install common applications:
-   - Adobe Acrobat Reader
-   - Microsoft Office
-   - Google Chrome
-   - Dropbox
-7. Optionally export BitLocker recovery key to Desktop
-8. Optionally create a local user and add to Administrators
-
-## Requirements
-- Elevated permissions are required to run this script.
-
-## Logging
-- The output of each command will be logged for review.
-
-## Sample Script:
-```powershell
 # Require elevated permissions
 if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WellKnownSidType]::Administrator)) {
     Write-Host "Please run as Administrator."
@@ -81,4 +55,3 @@ foreach ($app in $apps) {
 # $userName = 'YourUsername'
 # net user $userName Password123 /add
 # net localgroup Administrators $userName /add
-```
