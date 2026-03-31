@@ -123,20 +123,33 @@ Add-LocalGroupMember -Group "Administrators" -Member $Username
 
 ### Backup user files
 
-```
+```powershell
 robocopy .\Users\ D:\Backup\Users /E /Copyall /A-:SH /XJ /ZB /R:2 /W:5 /XF NTUSER.DAT*
 ```
 
 Here is the breakdown of that Robocopy command:
 
-- `.\Users\`: The Source directory (current folder's Users).
-- `D:\Backup\Users`: The Destination directory.
-- `/E`: Copies Subdirectories, including empty ones.
-- `/Copyall`: Copies all file information (Data, Attributes, Timestamps, NTFS ACLs/Permissions, Owner, and Auditing info). Equivalent to `/COPY:DATSOU`.
-- `/A-:SH`: Removes the System (S) and Hidden (H) attributes from the files in the destination.
-- `/XJ`: Excludes Junction points (symbolic links for folders). This prevents the command from getting stuck in infinite loops (like the "Application Data" loop).
-- `/ZB`: Uses Restartable mode; if access is denied, it switches to Backup mode (useful for bypassing permission issues on system files).
-- `/R:2`: Sets the number of Retries on failed copies to 2 (the default is 1 million).
-- `/W:5`: Sets the Wait time between retries to 5 seconds.
-- `/XF NTUSER.DAT*`: Excludes Files matching that name (typically registry hives that are locked while a user is logged in).  
+* `.\Users\`: The Source directory (current folder's Users).
+* `D:\Backup\Users`: The Destination directory.
+* `/E`: Copies Subdirectories, including empty ones.
+* `/Copyall`: Copies all file information (Data, Attributes, Timestamps, NTFS
+  ACLs/Permissions, Owner, and Auditing info). Equivalent to `/COPY:DATSOU`.
+* `/A-:SH`: Removes the System (S) and Hidden (H) attributes from the files in
+  the destination.
+* `/XJ`: Excludes Junction points (symbolic links for folders). This prevents
+  the command from getting stuck in infinite loops (like the "Application Data"
+  loop).
+* `/ZB`: Uses Restartable mode; if access is denied, it switches to Backup mode
+  (useful for bypassing permission issues on system files).
+* `/R:2`: Sets the number of Retries on failed copies to 2 (the default is 1 million).
+* `/W:5`: Sets the Wait time between retries to 5 seconds.
+* `/XF NTUSER.DAT*`: Excludes Files matching that name (typically registry
+  hives that are locked while a user is logged in).  
 
+### Downloading the setup script
+
+To download the PowerShell setup script, use the following command:
+
+```powershell
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/ymiseddy/pc-setup/main/scripts/setup.ps1 -OutFile setup.ps1
+```
