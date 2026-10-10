@@ -153,3 +153,13 @@ To download the PowerShell setup script, use the following command:
 ```powershell
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/ymiseddy/pc-setup/main/scripts/setup.ps1 -OutFile setup.ps1
 ```
+
+### Setting Windows 11 so other users can sign in
+```
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "dontdisplaylastusername" -Value 1 -Type DWord
+```
+```
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "HideFastUserSwitching" -Value 0 -Type DWord
+```
+
+
