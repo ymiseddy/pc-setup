@@ -56,6 +56,12 @@ winget install -e --id Google.Chrome --source winget
 winget install -e --id Dropbox.Dropbox --source winget
 ```
 
+## Libre Office
+```
+winget install -e --id TheDocumentFoundation.LibreOffice
+```
+
+
 ## BitLocker Recovery Key Backup Guide
 
 It is highly recommended to store your BitLocker recovery key in multiple
