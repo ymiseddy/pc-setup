@@ -152,6 +152,12 @@ Here is the breakdown of that Robocopy command:
 * `/XF NTUSER.DAT*`: Excludes Files matching that name (typically registry
   hives that are locked while a user is logged in).  
 
+Excluding Dropbox Folders:
+
+```powershell
+robocopy .\Users\ D:\Backup\Users /E /Copyall /A-:SH /XJ /ZB /R:2 /W:5 /XF NTUSER.DAT* /XD Dropbox
+```
+
 ### Downloading the setup script
 
 To download the PowerShell setup script, use the following command:
